@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Avatar from './Avatar';
 import NavLink from './NavLink';
+import logo from './images/shop-logo.svg';
+import Media from './Media';
 
 const Brand = styled.div`
   color: #fff;
@@ -14,12 +16,16 @@ const Brand = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
+
+  img {
+    height: 18px;
+    margin: 0 0 20px 20px;
+  }
 `
 const Identity = styled.div`
   color: #fff;
   padding-left: 60px;
 `
-
 const NavHeader = styled.div`
   background-color: rgba(0,0,0,0.4);
   padding: 40px 20px;
@@ -38,7 +44,6 @@ const NavHeader = styled.div`
     margin: 0 0 0 0;
   }
 `
-
 const NavContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
@@ -46,6 +51,10 @@ const NavContainer = styled.div`
   bottom: 0;
   width: calc(100vw - 70px);
   transform: translate3d(-100%, 0, 0);
+
+  @media ${Media.medium} {
+    width: 260px;
+  }
 `
 const NavSection = styled.div`
   background-color: rgba(255,255,255, 0.2);
@@ -82,8 +91,7 @@ export class Navigation extends React.Component {
           <NavSection />
           <NavLink name="Logout" />
           <Brand>
-            <span className="app-logo">Logo</span>
-            <span className="text">App name</span>
+            <img src={logo} alt="logo" />
           </Brand>
         </NavContainer>
       </Nav>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Navigation } from './Navigation';
 import Header from './Header';
 import Background from './Background';
+import Media from './Media';
 
 const Container = styled.div`
   bottom: 0; 
@@ -12,9 +13,17 @@ const Container = styled.div`
   transition: all 300ms cubic-bezier(0.65, 0.05, 0.36, 1);
   z-index: 2;
 
-  ${({isActive}) => isActive && `
-    transform: translate3d(calc(100vw - 70px), 0, 0);
-  `}
+  @media ${Media.small} {
+    ${({isActive}) => isActive && `
+      transform: translate3d(calc(100vw - 70px), 0, 0);
+    `}
+  }
+
+  @media ${Media.medium} {
+    ${({isActive}) => isActive && `
+      transform: translate3d(260px, 0, 0);
+    `}
+  }
 `
 
 const Content = styled.div`
